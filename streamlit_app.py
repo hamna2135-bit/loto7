@@ -1,8 +1,8 @@
 import streamlit as st
 
 st.title("🎱 ロト7番号ピックアップ")
-st.write("""どっかの攻略法を設計思想として、なんかありそうな番号をピックするよ
-         クイックピック、ランダムピックではないからね""")
+st.write("どっかの攻略法を設計思想として、なんかありそうな番号をピックするよ")
+st.write("クイックピック、ランダムピックではないからね")
 #設計思想
 #1.引っ張り数字は「1つ」必ず入れる
 #2.連番は「1組」必ず入れる
@@ -19,3 +19,13 @@ blue = [n+6 for n in green]
 purple = [n+6 for n in blue]
 purple.append(37)
 
+with st.form("my_form"):
+    st.write("Inside the form")
+    pick_ini_num = st.selectbox("引っ張り数字",[n for n in range(1,38)])
+    pick_ini_range = st.radio("引っ張り数字をズラす",["ズラす","ズラさない"])
+
+    # Every form must have a submit button.
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("引っ張り数字", pick_ini_num)
+        st.write("引っ張り数字を", pick_ini_range)
