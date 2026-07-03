@@ -34,17 +34,6 @@ result = []
 even = []
 odd = []
 
-with st.form("my_form_1"):
-    st.write("まんべんなくピック")
-    pick_ini_num = st.selectbox("引っ張り数字",[n for n in range(1,38)])
-    #pick_ini_range = st.radio("引っ張り数字をズラす",["ズラす","ズラさない"])
-
-    # Every form must have a submit button.
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        num_pick(pick_ini_num)
-        st.write(result)
-
 def num_pick(num):
     c_table = table_name[randint(0,5)]
     for k,v in table_dict.items():
@@ -125,4 +114,13 @@ def num_pick(num):
                     even.append(i)
                 else:
                     odd.append(i)
-    
+
+with st.form("my_form_1"):
+    st.write("まんべんなくピック")
+    pick_ini_num = st.selectbox("引っ張り数字",[n for n in range(1,38)])
+    #pick_ini_range = st.radio("引っ張り数字をズラす",["ズラす","ズラさない"])
+
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        num_pick(pick_ini_num)
+        st.write(result)
