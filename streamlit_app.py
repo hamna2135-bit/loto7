@@ -122,5 +122,5 @@ with st.form("my_form_1"):
 
     submitted = st.form_submit_button("Submit")
     if submitted:
-        num_pick(pick_ini_num)
+        num_pick(int(pick_ini_num))
         st.write(result)
