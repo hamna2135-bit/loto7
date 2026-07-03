@@ -30,11 +30,10 @@ table_dict = {
     "purple" : purple,
 }
 
-result = []
-even = []
-odd = []
-
 def num_pick(num):
+    result = []
+    even = []
+    odd = []
     c_table = table_name[randint(0,5)]
     for k,v in table_dict.items():
         if num in v :
@@ -115,6 +114,8 @@ def num_pick(num):
                 else:
                     odd.append(i)
 
+    st.write(result)
+
 with st.form("my_form_1"):
     st.write("まんべんなくピック")
     pick_ini_num = st.selectbox("引っ張り数字",[n for n in range(1,38)])
@@ -123,4 +124,3 @@ with st.form("my_form_1"):
     submitted = st.form_submit_button("Submit")
     if submitted:
         num_pick(int(pick_ini_num))
-        st.write(result)
