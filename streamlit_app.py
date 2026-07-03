@@ -1,4 +1,5 @@
 import streamlit as st
+from random import randint
 
 st.title("🎱 ロト7番号ピックアップ")
 st.write("どっかの攻略法を設計思想として、なんかありそうな番号をピックするよ")
@@ -18,6 +19,7 @@ green = [n+6 for n in yellow]
 blue = [n+6 for n in green]
 purple = [n+6 for n in blue]
 purple.append(37)
+table_name = ["red","orange","yellow","green","blue","purple"]
 
 with st.form("my_form_1"):
     st.write("まんべんなくピック")
@@ -30,6 +32,6 @@ with st.form("my_form_1"):
         st.write("引っ張り数字", pick_ini_num)
         st.write("引っ張り数字を", pick_ini_range)
 
-st.write("outside form")
-st.write(pick_ini_num)
-st.write(pick_ini_range)
+def num_pick(num,range):
+    c_table = table_name[randint(0,5)]
+    
